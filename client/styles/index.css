@@ -1,0 +1,59 @@
+:root {
+  --indigo: #1f2041;
+  --purple: #4b3f72;
+  --teal: #417b5a;
+  --bone: #d0ceba;
+  --petal: #e9d2c0;
+}
+
+body {
+	background: linear-gradient(-45deg, var(--indigo), var(--purple), var(--teal), var(--bone));
+	background-size: 400% 400%;
+	animation: gradient 7s ease infinite;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	color: #f2e9dc;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.title {
+	background: transparent;
+	color: white;
+	border: none;
+	font-size: 7rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+}
+
+.btn {
+	cursor: pointer;
+	border: 1px solid;
+	padding: 20px;
+	padding-inline: 30px;
+	margin:40px;
+}
+
+.btn:hover{
+	background-color: rgba(208, 206, 186, 0.5);
+	text-decoration: bold;
+	letter-spacing: 1em;
+}
