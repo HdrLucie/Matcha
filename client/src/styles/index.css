@@ -46,10 +46,12 @@ body {
 
 .btn {
 	cursor: pointer;
-	border: 1px solid;
+	color: var(--bone);
+	border: 1px solid white;
 	padding: 20px;
 	padding-inline: 30px;
 	margin:40px;
+	background-color: transparent;
 }
 
 .btn:hover{
