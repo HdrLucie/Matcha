@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import 'bootstrap/dist/css/bootstrap.css';
+import Form from 'react-bootstrap/Form';
+import '../styles/index.css';
+
 
 type Inputs = {
 	example: string
@@ -18,20 +22,18 @@ export default function Register() {
 
 	console.log(watch("example"))
 	return (
-		<div className="container mt-5">
+		<div className="register-container">
 		<h1>Register</h1>
-
-		<form onSubmit={handleSubmit(onSubmit)}>
-		{/* register your input into the hook by invoking the "register" function */}
-		<input defaultValue="test" {...register("example")} />
-
-		{/* include validation with required or other standard HTML validation rules */}
-		<input {...register("exampleRequired", { required: true })} />
-		{/* errors will return when field validation fails  */}
-		{errors.exampleRequired && <span>This field is required</span>}
-
-		<input type="submit" />
-		</form>
+    <Form>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="name@example.com" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Example textarea</Form.Label>
+        <Form.Control as="textarea" rows={3} />
+      </Form.Group>
+    </Form>
 		</div>
 	);
 }
