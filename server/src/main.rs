@@ -1,4 +1,5 @@
 use axum::{Json, Router, routing::post};
+use tower_http::cors::{Any, CorsLayer};
 
 struct User {
     name: String,
@@ -6,18 +7,25 @@ struct User {
 
 #[tokio::main]
 async fn main() {
-    let mut app = Router::new();
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
+    let cors = CorsLayer::new()
+        .allow_origin(Any)
+        .allow_methods(Any)
+        .allow_headers(Any);
+
+    let app = router().layer(cors);
+
     println!("Server running on http://0.0.0.0:8080");
-    app = router(app);
     axum::serve(listener, app).await.unwrap();
 }
 
-fn router(app: Router) -> Router {
-    app.route("/login", post(sign_up))
+fn router() -> Router {
+    Router::new().route("/login", post(sign_up))
 }
 
 async fn sign_up(Json(payload): Json<serde_json::Value>) {
-    let user: User = User{ name: payload["name"].to_string() };
+    let user: User = User {
+        name: payload["name"].to_string(),
+    };
     println!("{}", user.name);
 }
