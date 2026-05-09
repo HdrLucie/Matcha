@@ -7,8 +7,8 @@ export default function Index() {
 		<>
 		<div className="title">MATCHA</div>
 		<div style={{ margin: '20px', display: 'flex', justifyContent: 'center'}}>
-		<button className="btn" onClick={() => navigate('/register')}>SIGN UP</button>
-		<button className="btn">LOGIN</button>
+		<button className="btn-index" onClick={() => navigate('/register')}>SIGN UP</button>
+		<button className="btn-index">LOGIN</button>
 		</div>
 		</>
 	);

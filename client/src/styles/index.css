@@ -44,7 +44,7 @@ body {
 	padding: 1rem 2rem;
 }
 
-.btn {
+.btn-index {
 	cursor: pointer;
 	color: var(--bone);
 	border: 1px solid white;
@@ -54,8 +54,7 @@ body {
 	background-color: transparent;
 }
 
-.btn:hover{
+.btn-index:hover{
 	background-color: rgba(208, 206, 186, 0.5);
 	text-decoration: bold;
-	letter-spacing: 1em;
 }
