@@ -8,7 +8,7 @@ function NameForm() {
 		event.preventDefault();
 		try {
 			console.log("TRY");
-			const response = await fetch("/login", {
+			const response = await fetch("http://127.0.0.1:8080/login", {
 				method:"POST",
 				body: JSON.stringify({
 					name : login,
