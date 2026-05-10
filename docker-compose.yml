@@ -12,3 +12,16 @@ services:
       - "8080:8080"
     volumes:
       - ./server/src:/app/src
+
+  database:
+    image: postgres:latest
+    restart: always
+    container_name: my_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: sampledb
